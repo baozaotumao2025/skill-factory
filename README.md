@@ -42,32 +42,36 @@
 
 ---
 
-## 如何从一份新教材生产新技能？（极简 3 步走）
+## 新教材如何一键变成新 Skill？（只需 3 步）
 
-### 第一步：一键初始化新技能工程
-在终端中运行 `make_skill.py`：
+未来无论您拿到什么领域的教材（销售、管理、短视频、研发等），只需执行以下标准工作流：
+
+### 第一步：运行母机脚手架，一键初始化新工程骨架
+
 ```bash
-python3 make_skill.py \
-  --name "sales-forge" \
-  --title "大客户销售商机攻防局" \
-  --desc "B2B大客户销售决策链破局与排雷" \
-  --slogan "成交靠算账，拒绝自嗨PPT！" \
-  -o "../sales-forge"
+python3 /Users/cherubines/Downloads/skill-factory/make_skill.py \
+  --name "你的技能英文名" \
+  --title "你的技能中文名" \
+  --desc "一句话定位" \
+  --slogan "业务信念/口号" \
+  -o "../你的新工程目录"
 ```
-*脚手架会自动在目标目录建立包含所有工具、规约和测试套件的标准工程。*
 
-### 第二步：知识蒸馏与教材编译 (按 SOP 指南)
-1. 将您的原始教材（PDF、Word、Markdown）放入新工程的 `docs/raw_corpus/` 目录；
-2. 按照 [`SOP_SKILL_DISTILLATION.md`](SOP_SKILL_DISTILLATION.md) 让 Agent 执行知识提炼：
-   - 梳理底层心智模型与算账公式；
-   - 提炼反直觉原则与排雷清单 (`anti-patterns.md`)；
-   - 规划 2~3 个垂直子命令；
-   - 提取 8~12 个核心章节存入临时 `chapters/` 目录；
-3. 在新工程下运行 `python3 skills/<skill-name>/build_db.py`，教材将自动编译为二进制 `knowledge.db`，随后即可清除明文 chapters。
+*脚手架会自动在新目录下创建标准的目录树，并自动把 `build_db.py`、`retrieve.py`、`slop_filter.py`、`slop-filter.md`、`test_suite.py` 装备齐全。*
 
-### 第三步：全流程回归测试与验证
-在新工程下运行测试套件：
+### 第二步：教材知识蒸馏（丢给 Agent 执行 `SOP_SKILL_DISTILLATION.md`）
+
+1. 把新教材放入新工程的 `docs/raw_corpus/` 目录；
+2. 告诉 Agent：**“按照 `SOP_SKILL_DISTILLATION.md` 对这本教材进行提纯，提炼底层公式、四大自嗨骗局，规划 2~3 个垂直子命令，并提取出核心章节放入临时 `chapters/`”**；
+3. 运行 `python3 skills/<skill_name>/build_db.py`，教材将被自动压缩编译为二进制密态库 `knowledge.db`，然后直接删除明文 `chapters/`，彻底防白嫖。
+
+### 第三步：一键运行回归测试
+
+在新工程目录下直接运行：
+
 ```bash
 python3 tests/test_suite.py
 ```
-全部通过后，新技能即达工业级交付标准！
+
+全部通过后，一个全新的工业级、零 AI 味、带密态知识库的专属 Agent Skill 即正式完工！
+
