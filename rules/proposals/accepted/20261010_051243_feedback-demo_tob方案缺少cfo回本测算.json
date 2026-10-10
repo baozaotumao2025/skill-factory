@@ -1,0 +1,14 @@
+{
+  "proposal_id": "20261010_051243_feedback-demo_tob方案缺少cfo回本测算",
+  "submitted_at": "2026-10-10T05:12:43Z",
+  "source_skill": "feedback-demo",
+  "domain": "tob-sales",
+  "title": "ToB方案缺少CFO回本测算",
+  "issue": "销售给大客户出方案时只讲产品功能，没有提供现金流回本月数预测",
+  "consequence": "客户业务主管认可但CFO一票否决，方案被直接打回",
+  "solution": "必须强制输出标准3列财务算账卡：投入金额、月节省/增收金额、静态投资回收期（月数）",
+  "trigger_example": "缺少财务回本周期测算",
+  "status": "accepted",
+  "assigned_ap": "AP-009",
+  "accepted_at": "2026-10-10T05:15:37Z"
+}
